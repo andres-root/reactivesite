@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://192.168.0.24/')
+    fetch('http://localhost:3000/sensor.json')
       .then(response => response.json())
       .then(json => {
         this.setState({ data: json });
@@ -58,7 +58,7 @@ class Content extends Component {
   render() {
     return (
       <div className="main-content">
-        <Sensor data={this.props.data} />
+        <Sensor data={this.props.data} variables={this.props.data.variables} />
       </div>
     );
   }
@@ -66,6 +66,8 @@ class Content extends Component {
 
 class Sensor extends Component {
   render() {
+    console.log(this.props.variables);
+    
     return (
       <section className="sensor">
         <div className="status">
@@ -84,10 +86,10 @@ class Sensor extends Component {
           </p>
           <br />
 
-          <p>
+          {/* <p>
             <b>Connected: </b>{this.props.data.connected}
           </p>
-          <br />
+          <br /> */}
 
         </div>
         <table>
@@ -100,9 +102,7 @@ class Sensor extends Component {
           </thead>
           <tbody>
             <tr>
-              <td>{this.props.data.variables.temperature}</td>
-              <td>{this.props.data.variables.humidity}</td>
-              <td>{this.props.data.variables.contaminacion}</td>
+
             </tr>
           </tbody>
         </table>

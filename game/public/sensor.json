@@ -1,0 +1,1 @@
+{"variables": {"temperature": 21.50, "humidity": 74.50, "contaminacion": 240.00}, "id": "1", "name": "local_sensor_wemos", "hardware": "esp8266", "connected": true}
